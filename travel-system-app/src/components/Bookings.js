@@ -147,7 +147,7 @@ function Bookings() {
     const booking = bookings.find((booking) => booking.bookingid === id);
     if (booking) {
       alert(
-        `Booking ID: ${booking.id}\nTraveller Name: ${booking.name}\nDestination: ${booking.destination}\nBooking Status: ${booking.status}\nDate: ${booking.date}`
+        `Booking ID: ${booking.bookingid}\nTraveller Name: ${booking.name}\nDestination: ${booking.destination}\nBooking Status: ${booking.status}\nDate: ${booking.date}`
       );
     } else {
       alert("Booking not found");
