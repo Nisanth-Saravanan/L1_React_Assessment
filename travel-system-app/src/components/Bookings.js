@@ -10,6 +10,7 @@ function Bookings() {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
+    document.title = "Z Bookings";
     axios
       .get(API_URL)
       .then((response) => setBookings(response.data))
@@ -65,7 +66,7 @@ function Bookings() {
     while (!bookingid || !name || !destination || !status) {
       bookingid = prompt("Enter new booking ID:");
       if (bookings.some((booking) => booking.bookingid === bookingid)) {
-        alert("Booking ID already exists");
+        alert("Update: Booking ID already exists");
         continue;
       }
 
@@ -81,24 +82,24 @@ function Bookings() {
         status !== "confirmed" &&
         status !== "cancelled"
       ) {
-        alert("Please enter a valid booking status");
+        alert("Update: Please enter a valid booking status");
         continue;
       }
 
       date = prompt("Enter new date: YYYY-MM-DD");
       if (!dateRegex.test(date)) {
-        alert("Please enter a valid date in the format YYYY-MM-DD");
+        alert("Update: Please enter a valid date in the format YYYY-MM-DD");
         continue;
       }
       if (date < toString(new Date())) {
-        alert("Date cannot be in the past");
+        alert("Update: Date cannot be in the past");
         continue;
       }
 
       date = new Date(date);
 
       if (!bookingid || !name || !destination || !status || !date) {
-        alert("Please fill in all fields");
+        alert("Update: Please fill in all fields");
       } else {
         name = name.charAt(0).toUpperCase() + name.slice(1);
         status = status.charAt(0).toUpperCase() + status.slice(1);

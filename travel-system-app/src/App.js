@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useEffect } from "react";
 import vid from "./media/Background2.mp4";
 import Bookings from "./components/Bookings";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -25,7 +25,7 @@ function App() {
               <tr>
                 <td>
                   <Link to="/">
-                    <button className="search-button">Home</button>
+                    <button className="search-button" onClick={() => {document.title = "Z Travel";}}>Home</button>
                   </Link>
                 </td>
                 <td>

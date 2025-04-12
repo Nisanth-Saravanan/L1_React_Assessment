@@ -1,3 +1,12 @@
 {
-  "bookings": []
+  "bookings": [
+    {
+      "id": "47a3",
+      "bookingid": "100",
+      "name": "Ben",
+      "destination": "New York",
+      "status": "pending",
+      "date": "2025-04-18"
+    }
+  ]
 }
