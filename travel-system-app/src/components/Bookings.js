@@ -34,7 +34,10 @@ function Bookings() {
       !data.date
     ) {
       alert("Please fill in all fields");
-      return;
+    } else if (
+      bookings.some((booking) => booking.bookingid === data.bookingid)
+    ) {
+      alert("Booking ID already exists");
     } else if (data.date < toString(new Date())) {
       alert("Date cannot be in the past");
     } else {
@@ -61,6 +64,11 @@ function Bookings() {
 
     while (!bookingid || !name || !destination || !status) {
       bookingid = prompt("Enter new booking ID:");
+      if (bookings.some((booking) => booking.bookingid === bookingid)) {
+        alert("Booking ID already exists");
+        continue;
+      }
+
       name = prompt("Enter new traveller name:");
       destination = prompt("Enter new destination:");
 
@@ -102,6 +110,7 @@ function Bookings() {
             name: name,
             destination: destination,
             status: status,
+            date: date,
           })
           .then(() =>
             setBookings(
@@ -113,6 +122,7 @@ function Bookings() {
                       name: name,
                       destination: destination,
                       status: status,
+                      date: date,
                     }
                   : booking
               )
